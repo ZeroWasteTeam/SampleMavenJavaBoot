@@ -30,7 +30,7 @@ jobs:
         
       - name: Making Custom Scripts As Executable
         run: |
-          cd .github/scripts
+          cd .github/workflows/scripts
           echo "::set-env name=PATH::${PATH}:$(pwd)"
           chmod +x *
     
