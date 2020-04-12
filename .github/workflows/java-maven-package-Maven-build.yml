@@ -9,7 +9,7 @@ on:
       - 'master'
       - 'release*'
 env:
-  IMAGE_NAME: springbootimage
+  IMAGE_NAME: mavenbootimage
 
 jobs:
   build-test-dockerize-version-publish:
