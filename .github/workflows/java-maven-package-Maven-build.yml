@@ -9,7 +9,7 @@ on:
       - 'master'
       - 'rel-*'
 env:
-  IMAGE_NAME: springbootMavenimage
+  IMAGE_NAME: springbootmavenimage
 
 jobs:
   build-test-dockerize-version-publish:
