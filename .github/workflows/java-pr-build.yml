@@ -29,6 +29,4 @@ jobs:
      
            
     - name: PR - mvn Build
-      run: mvn build
-    - name: PR - mvn Test
-      run: mvn test
+      run: mvn clean package --file pom.xml
