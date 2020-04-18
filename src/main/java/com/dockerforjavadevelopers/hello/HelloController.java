@@ -12,4 +12,8 @@ public class HelloController {
         return "Hello World\n";
     }
     
+    @RequestMapping("/api/health")
+    public String health() {
+        return "Hello World : Bye\n";
+    }
 }
