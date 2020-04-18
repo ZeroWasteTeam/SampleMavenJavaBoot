@@ -19,7 +19,8 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.0.0-rc.1
-        env:
-          CR_TOKEN: "{{ secrets.GITHUB_TOKEN }}"
+        with:
           charts_repo_url: "https://zerowasteteam.github.io/helm-chart/"
           charts_dir: "SampleMavenJavaBoot/helm/"
+        env:
+          CR_TOKEN: "{{ secrets.GITHUB_TOKEN }}"
