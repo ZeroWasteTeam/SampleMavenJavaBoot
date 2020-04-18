@@ -15,7 +15,7 @@ RUN mvn package
 FROM openjdk:8-jdk-alpine
 
 
-#expose port 8080
+#expose port 8090
 EXPOSE 8080
 
 #default command
