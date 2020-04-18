@@ -29,4 +29,4 @@ jobs:
     # The folder to package helm charts from
         source-charts-folder: "helm"
     # The destination repository you want to push your Helm chart to.
-        destination-repo: "https://github.com/ZeroWasteTeam/helm-repo"
+        destination-repo: "ZeroWasteTeam/helm-repo"
