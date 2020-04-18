@@ -42,5 +42,5 @@ jobs:
            
       - name: push 
         run: |
-          cd /helm
+          cd helm
           helm package .
