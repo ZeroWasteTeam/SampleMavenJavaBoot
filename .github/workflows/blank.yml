@@ -21,3 +21,5 @@ jobs:
         uses: helm/chart-releaser-action@v1.0.0-rc.1
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
+          charts_repo_url: "https://zerowasteteam.github.io/helm-chart/"
+          charts_dir: "helm"
