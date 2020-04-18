@@ -15,8 +15,8 @@ RUN mvn package
 FROM openjdk:8-jdk-alpine
 
 
-#expose port 80
-EXPOSE 80
+#expose port 8090
+EXPOSE 8080
 
 #default command
 CMD java -jar /data/hello-world-0.1.0.jar
