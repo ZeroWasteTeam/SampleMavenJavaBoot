@@ -1,0 +1,42 @@
+name: Docker Release Build
+
+on:
+  repository_dispatch:
+
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - 'master'
+      - 'rel-*'
+env:
+  IMAGE_NAME: springbootmavenimage
+
+jobs:
+  build-test-dockerize-version-publish:
+    name: Build Test Dockerize Version Publish
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+        
+      - name: Get Release Version
+        id: compute-release-version
+        uses: ZeroWasteTeam/actions/compute-version@master
+        with:
+          build-branch:  ${{ github.ref }}
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag image
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      
+
+      - name: Docker Publish
+        run: |       
+          REPOSITORY_NAME_IN_SMALL=$(echo "$GITHUB_REPOSITORY" | tr '[:upper:]' '[:lower:]')
+          IMAGE_ID=docker.pkg.github.com/$REPOSITORY_NAME_IN_SMALL/$IMAGE_NAME
+          echo IMAGE_ID=${{ steps.compute-release-version.outputs.version}}
+
+          docker tag image $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
+          docker push $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
