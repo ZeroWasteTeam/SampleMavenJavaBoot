@@ -41,5 +41,5 @@ jobs:
           # docker tag image $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
           # docker push $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
           
-          docker tag image $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
-          docker push $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
+          docker tag image $IMAGE_ID:2.2.2
+          docker push $IMAGE_ID:2.2.2
