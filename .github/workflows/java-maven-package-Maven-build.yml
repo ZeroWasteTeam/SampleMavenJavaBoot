@@ -40,7 +40,15 @@ jobs:
            docker tag image $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
            docker push $IMAGE_ID:${{ steps.compute-release-version.outputs.version}}
            
-      - name: push 
-        run: |
-          cd helm
-          helm package .
+      - name: Helm Publish For Microservices
+        uses: ZeroWasteTeam/helm-gh-pages-microservices@master
+        with:
+    # A personal access token needed to push your site after it has been built.
+          access-token: "${{ secrets.HELM_TOKEN }}"
+        
+    # The folder to package helm charts from
+          source-charts-folder: ""
+    # The destination repository you want to push your Helm chart to.
+          destination-repo: "ZeroWasteTeam/helm-repo"
+          destination-branch: "master"
+          destination-charts-folder: ""
