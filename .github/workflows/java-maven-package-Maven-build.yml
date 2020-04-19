@@ -52,4 +52,5 @@ jobs:
           destination-repo: "ZeroWasteTeam/helm-repo"
           destination-branch: "master"
           destination-charts-folder: ""
-          releaseversion: ${{ steps.compute-release-version.outputs.version}}
+          releaseversion: "1.1.5"
+         # releaseversion: ${{ steps.compute-release-version.outputs.version}}
